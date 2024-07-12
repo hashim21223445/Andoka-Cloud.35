@@ -28,7 +28,7 @@
   "main": "index.js",
   "dependencies": {
     "@vuepress/markdown": "1.9.10",
-    "loader-utils": "^2.0.4",
+    "loader-utils": "^3.2.1",
     "lru-cache": "^5.1.1"
   },
   "publishConfig": {
