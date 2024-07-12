@@ -1,0 +1,44 @@
+name: Pull request workflow
+
+on:
+  pull_request:
+
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.0.2
+          run_install: true
+
+      - name: Install dependencies
+        run: pnpm run bootstrap
+
+      - name: Run tsc
+        run: pnpm run tsc
+
+      - name: Run unit tests
+        run: pnpm run test
+
+      - name: Check linter
+        run: pnpm run lint
+
+      - name: Check markdown linter
+        run: pnpm run workspace docs lint-md
+
+      - name: Build vuepress
+        run: pnpm run build 
