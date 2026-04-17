@@ -8,7 +8,7 @@ pull_request_rules:
           - schedule = Mon-Fri 09:00-17:00[America/Los_Angeles]
           - label = hotfix
     actions:
-      merge: 
+      merge:
   - name: Add a queue label when PR is queued
     description: Toggle the queue label when a pull request is (un)queued.
     conditions:
@@ -23,7 +23,7 @@ pull_request_rules:
       branch to avoid semantic conflicts (next step is using a merge queue).
     conditions: []
     actions:
-      update: 
+      update:
   - name: Request review from team
     description: Request review from a specific team when checks are green.
     conditions:
@@ -35,3 +35,5 @@ pull_request_rules:
       request_reviews:
         teams:
           - TEAM_NAME_HERE
+merge_protections_settings:
+  reporting_method: check-runs
