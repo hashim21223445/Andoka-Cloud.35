@@ -46,7 +46,7 @@
     "copy-webpack-plugin": "^5.0.2",
     "core-js": "^3.6.4",
     "cross-spawn": "^7.0.6",
-    "css-loader": "^6.0.0",
+    "css-loader": "^5.0.0",
     "esbuild": "0.25.0",
     "file-loader": "^3.0.1",
     "js-yaml": "^4.1.1",
